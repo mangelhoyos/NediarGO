@@ -1,6 +1,5 @@
 NediarGo/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-8_8_0.so filter=lfs diff=lfs merge=lfs -text
 ## Unity ##
-
 *.cs diff=csharp text
 *.cginc text
 *.shader text
