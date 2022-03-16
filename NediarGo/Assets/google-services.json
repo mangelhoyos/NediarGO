@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "281375534406",
+    "project_id": "nediargo",
+    "storage_bucket": "nediargo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281375534406:android:a984d1e09c72ed8d600947",
+        "android_client_info": {
+          "package_name": "com.BardsCharm.NediarGO"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281375534406-u6d0d49jooarf6slg8r0thsf0s4e5d52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnR0ogpm3xeM1YaGJZI3qJ9KYp99toGjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281375534406-u6d0d49jooarf6slg8r0thsf0s4e5d52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
