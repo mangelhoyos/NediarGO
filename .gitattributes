@@ -46,3 +46,6 @@ NediarGo/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-8_8_0.so filter=lfs diff=
 *.reason filter=lfs diff=lfs merge=lfs -text
 *.lxo filter=lfs diff=lfs merge=lfs -text
 *.so filter=lfs diff=lfs merge=lfs -text
+.tgz filter=lfs diff=lfs merge=lfs -text
+*.tgz filter=lfs diff=lfs merge=lfs -text
+*.aar filter=lfs diff=lfs merge=lfs -text
