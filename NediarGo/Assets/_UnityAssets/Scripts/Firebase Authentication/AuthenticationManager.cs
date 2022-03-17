@@ -3,6 +3,7 @@ using Firebase;
 using Firebase.Auth;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AuthenticationManager : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class AuthenticationManager : MonoBehaviour
 
     [Header("Register setup")]
     [SerializeField]private GameObject registerPanel;
-    [SerializeField]private TMP_InputField usernameRegisterField;
     [SerializeField]private TMP_InputField emailRegisterField;
     [SerializeField]private TMP_InputField passwordRegisterField;
     [SerializeField]private TMP_InputField passwordRegisterVerifyField;
@@ -28,6 +28,7 @@ public class AuthenticationManager : MonoBehaviour
 
     private void Awake() //Checks for dependencies status
     {
+        DontDestroyOnLoad(gameObject);
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
@@ -93,6 +94,7 @@ public class AuthenticationManager : MonoBehaviour
             user = loginTask.Result;
             Debug.LogFormat("User signed successfuly: {0} ({1})", user.DisplayName, user.Email);
             warningLoginText.text = "Logged in";
+            InitializeGame();
         }
     }
 
@@ -162,9 +164,17 @@ public class AuthenticationManager : MonoBehaviour
                     {
                         registerPanel.SetActive(false);
                         logInPanel.SetActive(true);
+                        InitializeGame();
                     }
                 }
             }
         }
     }
+
+    private void InitializeGame()
+    {
+        SceneManager.LoadScene("ARArea");
+    }
+
+     public FirebaseUser GetUserData() => user;
 }
