@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Used to handle all the behaviour of the pokedex and its functionality
+/// </summary>
 public class PokedexHandler : MonoBehaviour
 {
     [Header("Search for pokemon")]
@@ -20,6 +23,9 @@ public class PokedexHandler : MonoBehaviour
 
     private int actualPage = 0; //The page where the pokedex actually is
 
+    /// <summary>
+    /// Fills the pokedex first 10 items in the list with the corresponding pokemons respect the actual page in the list
+    /// </summary>
     public void GetPokemonData()
     {
         StartCoroutine(GetDataForPokedex());
@@ -72,6 +78,10 @@ public class PokedexHandler : MonoBehaviour
         actualPage = 0;
     }
 
+    /// <summary>
+    /// Fills a new panel with information of the selected pokemon
+    /// </summary>
+    /// <param name="data">The pokemon data that will be used for filling the information in the selection panel</param>
     public void SelectPokemon(PokemonData data)
     {
         pokemonId.text = data.GetPokemonData().id.ToString();
@@ -85,6 +95,9 @@ public class PokedexHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Searchs for a pokemon based on user input and retrieves the information in the selection panel
+    /// </summary>
     public void SearchForPokemon()
     {
         Pokemon pokemonRetrieved = null;
@@ -113,6 +126,9 @@ public class PokedexHandler : MonoBehaviour
     }
 }
 
+/// <summary>
+/// Class used to manage the information of each one of the items (cards) of the pokedex list
+/// </summary>
 [System.Serializable]
 public class PokeCard
 {

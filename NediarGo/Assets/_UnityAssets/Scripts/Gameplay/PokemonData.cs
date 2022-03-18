@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Monobehaviour to every item that is clasified as a Pokemon (Vuforia's pokemon object and pokemon cards)
+/// </summary>
 public class PokemonData : MonoBehaviour
 {
     private Pokemon pokemonData;
@@ -9,6 +10,9 @@ public class PokemonData : MonoBehaviour
     public void SetPokemonData(Pokemon pokeData) => pokemonData = pokeData;
 }
 
+/// <summary>
+/// All the data that a Pokemon haves
+/// </summary>
 [System.Serializable]
 public class Pokemon
 {
