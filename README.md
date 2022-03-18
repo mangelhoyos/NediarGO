@@ -16,5 +16,3 @@ In Nediar GO you can catch pokemons using your pokeballs. To play you must:
  4. Swipe your finger to the direction you want to throw the pokeball
 
 You can also go and check the Pokedex to see all the pokemons you can encounter in your journey or search for a pokemon name to see if it's available!
-
-![Gameplay](https://ibb.co/MSFZn1p)
