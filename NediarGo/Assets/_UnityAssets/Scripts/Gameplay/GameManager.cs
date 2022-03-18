@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         GetAuthenticationData();
         GetPokemonFromAPICall();
+        pokemonStatus.CrossFadeAlpha(0, 0.1f, true);
     }
 
     /// <summary>
@@ -71,27 +72,40 @@ public class GameManager : MonoBehaviour
     {
         pokemonName.enabled = false;
         pokemonRenderer.enabled = false;
+
         string statusMessage = string.Empty;
+        Color textColor = Color.black;
 
         int escapeProbability = Random.Range(0,101);
         if(escapeProbability < escapeChance)
         {
             //Escaped
             statusMessage = "Pokemon escaped";
-            pokemonStatus.color = Color.red;
+            textColor = Color.red;
+            AudioManager.instance.Play("PokemonEscaped");
         }
         else
         {
             //Captured
             statusMessage = $"You captured a {pokeData.GetPokemonData().name}!";
-            pokemonStatus.color = Color.green;
+            textColor = Color.green;
             excludedPokemonIDs.Add(pokeData.GetPokemonData().id); //If it is caught then exclude him from appearing again
+            AudioManager.instance.Play("PokemonCaptured");
         }
 
         pokemonStatus.text = statusMessage;
+        StartCoroutine(ShowTextMessage(4f,textColor));
         
         GetPokemonFromAPICall();
     }
 
+    IEnumerator ShowTextMessage(float time, Color color)
+    {
+        pokemonStatus.color = color;
+        pokemonStatus.CrossFadeAlpha(0.9f, 1.4f, true);
 
+        yield return new WaitForSeconds(time);
+
+        pokemonStatus.CrossFadeAlpha(0, 0.8f, true);
+    }
 }
