@@ -4,6 +4,9 @@ using SimpleJSON;
 using UnityEngine;
 using UnityEngine.Networking;
 
+/// <summary>
+/// Class used for handling all the API connection and retrieving Pokemon data
+/// </summary>
 public class PokeAPIHandler : MonoBehaviour
 {
     public static PokeAPIHandler Instance {private set; get;}
@@ -23,8 +26,12 @@ public class PokeAPIHandler : MonoBehaviour
         }
     }
 
-
-    IEnumerator GetPokemon(int index, Action<Pokemon> pokemonRetrieved) //Overload for searching pokemons by id
+    /// <summary>
+    /// Gets a Pokemon by a given index
+    /// </summary>
+    /// <param name="index">The index that will be used to search the Pokemon</param>
+    /// <param name="pokemonRetrieved">The Pokemon variable that will be used as a "ref" to give the pokemon data</param>
+    public IEnumerator GetPokemon(int index, Action<Pokemon> pokemonRetrieved) //Overload for searching pokemons by id
     {
         string URL = pokeApiURL + index.ToString();
 
@@ -68,6 +75,11 @@ public class PokeAPIHandler : MonoBehaviour
         pokemonRetrieved(new Pokemon(index, pokeName, pokeTexture, pokeTypeStrings));
     }
 
+    /// <summary>
+    /// Gets a Pokemon by a given name (for example "charizard")
+    /// </summary>
+    /// <param name="pokemonName">The name that will be used to search the pokemon</param>
+    /// <param name="pokemonRetrieved">The Pokemon variable that will be used as a "ref" to give the pokemon data, if it doesn't find any it will return null</param>
     public IEnumerator GetPokemon(string pokemonName, Action<Pokemon> pokemonRetrieved) //Overload for searching pokemons by name
     {
         string URL = pokeApiPokemonListURL;
@@ -107,6 +119,11 @@ public class PokeAPIHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets a Pokemon array for the pokedex list
+    /// </summary>
+    /// <param name="offset">The initial index where the array will start filling (if it is set to 10 it will give the Pokemons by index from 10-20)</param>
+    /// <param name="pokemonArray">The ref Pokemon array that will be retrieved from the operation</param>
     public IEnumerator GetPokemonArray(int offset, Pokemon[] pokemonArray)
     {
         int index = 0;
@@ -159,6 +176,10 @@ public class PokeAPIHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Turns the first letter of a string into a upper case char
+    /// </summary>
+    /// <param name="word">The string that will have his first character changed for an upper case one</param>
     private string FirstLetterToUpperCase(string word)
     {
         return char.ToUpper(word[0]) + word.Substring(1);
