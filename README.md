@@ -1,4 +1,4 @@
-# About NediarGO
+# About PokemonGO App
 
 An AR game using Vuforia based on the Pokemon GO mechanic of catching pokemons.
 
@@ -8,7 +8,7 @@ Download the [Android APK](https://drive.google.com/file/d/1dhJxcs52M6gPJIg7nfBD
 
 ## Gameplay
 
-In Nediar GO you can catch pokemons using your pokeballs. To play you must:
+In Pokemon GO you can catch pokemons using your pokeballs. To play you must:
   
  1. Download and print in a paper the [Image target](https://drive.google.com/file/d/1GibxBoZHJQKNUtQm4TH098BMetfBIjax/view?usp=sharing).
  2. After logging in or registering aim the camera to the printed paper with the image target.
